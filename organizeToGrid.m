@@ -1,11 +1,11 @@
-function [resortedCenters] = organizeToGrid(centers)
+function [resortedCenters] = organizeToGrid(centers,dist)
 %UNTITLED Summary of this function goes here
 %   Detailed explanation goes here
 
 [val,idx] = sort(centers(:,2));
 %sortedCenters = zeros(size(centers));
 sortedCenters = centers(idx,:);
-cluster = dbscan(sortedCenters(:,2),[20],1);
+cluster = dbscan(sortedCenters(:,2),[dist],1);
 
 noOfClusters = max(cluster);
 

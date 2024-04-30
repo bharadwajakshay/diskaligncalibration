@@ -36,7 +36,7 @@ function [centers] = detectCalibBoard(image)
     
     imgDetected = insertShape(image,"circle",[centers(:,1),centers(:,2),radii(:)],LineWidth=3, Color="red");
     
-    resortedCenters = organizeToGrid(centers);
+    resortedCenters = organizeToGrid(centers,20);
     
     for i = 1:size(resortedCenters,1)
     imgDetected = insertText(imgDetected, [resortedCenters(i,1),resortedCenters(i,2)],int2str(i),"BoxOpacity",0,"FontColor","white");
